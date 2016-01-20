@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4AF25F371C4E565700F28920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF25F361C4E565700F28920 /* AppDelegate.swift */; };
-		4AF25F391C4E565700F28920 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF25F381C4E565700F28920 /* FirstViewController.swift */; };
 		4AF25F3B1C4E565700F28920 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF25F3A1C4E565700F28920 /* SecondViewController.swift */; };
 		4AF25F3E1C4E565700F28920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF25F3C1C4E565700F28920 /* Main.storyboard */; };
 		4AF25F401C4E565700F28920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AF25F3F1C4E565700F28920 /* Assets.xcassets */; };
 		4AF25F431C4E565700F28920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF25F411C4E565700F28920 /* LaunchScreen.storyboard */; };
 		4AF25F4E1C4E565800F28920 /* snoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF25F4D1C4E565800F28920 /* snoteTests.swift */; };
+		4AF25F591C4E56D200F28920 /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF25F581C4E56D200F28920 /* NoteListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +29,6 @@
 /* Begin PBXFileReference section */
 		4AF25F331C4E565700F28920 /* snote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF25F361C4E565700F28920 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4AF25F381C4E565700F28920 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		4AF25F3A1C4E565700F28920 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4AF25F3D1C4E565700F28920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AF25F3F1C4E565700F28920 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		4AF25F491C4E565800F28920 /* snoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF25F4D1C4E565800F28920 /* snoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snoteTests.swift; sourceTree = "<group>"; };
 		4AF25F4F1C4E565800F28920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AF25F581C4E56D200F28920 /* NoteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A7383801C4FE0FB003835B0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4AF25F581C4E56D200F28920 /* NoteListViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		4AF25F2A1C4E565700F28920 = {
 			isa = PBXGroup;
 			children = (
@@ -79,8 +87,8 @@
 		4AF25F351C4E565700F28920 /* snote */ = {
 			isa = PBXGroup;
 			children = (
+				4A7383801C4FE0FB003835B0 /* Controllers */,
 				4AF25F361C4E565700F28920 /* AppDelegate.swift */,
-				4AF25F381C4E565700F28920 /* FirstViewController.swift */,
 				4AF25F3A1C4E565700F28920 /* SecondViewController.swift */,
 				4AF25F3C1C4E565700F28920 /* Main.storyboard */,
 				4AF25F3F1C4E565700F28920 /* Assets.xcassets */,
@@ -200,9 +208,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF25F591C4E56D200F28920 /* NoteListViewController.swift in Sources */,
 				4AF25F3B1C4E565700F28920 /* SecondViewController.swift in Sources */,
 				4AF25F371C4E565700F28920 /* AppDelegate.swift in Sources */,
-				4AF25F391C4E565700F28920 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +400,7 @@
 				4AF25F541C4E565800F28920 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AF25F551C4E565800F28920 /* Build configuration list for PBXNativeTarget "snoteTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +409,7 @@
 				4AF25F571C4E565800F28920 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
