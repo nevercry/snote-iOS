@@ -8,7 +8,17 @@
 
 import UIKit
 
-class NoteListViewController: UIViewController {
+class NoteListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
+    
+    var notes = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +31,25 @@ class NoteListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - UITableView DataSource Delegate
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notes.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+        
+        if cell == nil {
+            cell = UITableViewCell.init(style: .Default, reuseIdentifier: "Cell")
+        }
+        
+        return cell!
+    }
 
     /*
     // MARK: - Navigation
@@ -31,5 +60,8 @@ class NoteListViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
 
 }

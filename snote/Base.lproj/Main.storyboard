@@ -32,6 +32,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notes" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="tableView" destination="gEp-52-c9S" id="43l-JX-GDe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
