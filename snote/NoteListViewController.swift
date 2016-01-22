@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+import MBProgressHUD
+import SwiftyJSON
+
 
 class NoteListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -17,18 +21,40 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    var notes = []
+    var notes:[JSON] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        loadNotes()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadNotes() {
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        
+        Alamofire.request(.GET, "http://10.0.1.9:3000/notes")
+            .responseJSON { response in
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                if let resValue = response.result.value {
+                    let json = JSON(resValue)
+                    
+                    if let array = json.array {
+                        self.notes = array
+                        self.tableView.reloadData()
+                    }
+                }
+        }
     }
     
     // MARK: - UITableView DataSource Delegate
@@ -44,8 +70,11 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         
+        var note = notes[indexPath.row]
+        
         if cell == nil {
             cell = UITableViewCell.init(style: .Default, reuseIdentifier: "Cell")
+            cell?.textLabel?.text = note["title"].string
         }
         
         return cell!
