@@ -4,6 +4,8 @@
 use_frameworks!
 
 target 'snote' do
+pod 'Alamofire', '~> 3.1'
+pod 'MBProgressHUD', '~> 0.9'
 
 end
 
