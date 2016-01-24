@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AAE83111C5535F400451CD7 /* SingleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */; };
+		4AAE83141C553F2B00451CD7 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */; };
+		4AAE83161C5542FE00451CD7 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */; };
 		4AF25F371C4E565700F28920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF25F361C4E565700F28920 /* AppDelegate.swift */; };
 		4AF25F3B1C4E565700F28920 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF25F3A1C4E565700F28920 /* SecondViewController.swift */; };
 		4AF25F3E1C4E565700F28920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF25F3C1C4E565700F28920 /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTextFieldCell.swift; sourceTree = "<group>"; };
+		4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
+		4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
 		4AF25F331C4E565700F28920 /* snote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF25F361C4E565700F28920 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AF25F3A1C4E565700F28920 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -67,8 +73,18 @@
 			isa = PBXGroup;
 			children = (
 				4AF25F581C4E56D200F28920 /* NoteListViewController.swift */,
+				4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4AAE83121C5535FB00451CD7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */,
+				4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		4AF25F2A1C4E565700F28920 = {
@@ -98,6 +114,7 @@
 				4AF25F361C4E565700F28920 /* AppDelegate.swift */,
 				4AF25F3A1C4E565700F28920 /* SecondViewController.swift */,
 				4AF25F3C1C4E565700F28920 /* Main.storyboard */,
+				4AAE83121C5535FB00451CD7 /* Views */,
 				4AF25F3F1C4E565700F28920 /* Assets.xcassets */,
 				4AF25F411C4E565700F28920 /* LaunchScreen.storyboard */,
 				4AF25F441C4E565700F28920 /* Info.plist */,
@@ -286,6 +303,9 @@
 				4AF25F591C4E56D200F28920 /* NoteListViewController.swift in Sources */,
 				4AF25F3B1C4E565700F28920 /* SecondViewController.swift in Sources */,
 				4AF25F371C4E565700F28920 /* AppDelegate.swift in Sources */,
+				4AAE83111C5535F400451CD7 /* SingleTextFieldCell.swift in Sources */,
+				4AAE83161C5542FE00451CD7 /* CreateNoteViewController.swift in Sources */,
+				4AAE83141C553F2B00451CD7 /* TextViewTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

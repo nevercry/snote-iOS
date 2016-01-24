@@ -14,12 +14,15 @@ import SwiftyJSON
 
 class NoteListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - 属性
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
         }
     }
+    
+    
     
     var notes:[JSON] = []
     
@@ -57,6 +60,13 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
         }
     }
+    
+    // MARK: - Action
+    // 创建笔记
+    @IBAction func createNote(sender: UIBarButtonItem) {
+        
+    }
+    
     
     // MARK: - UITableView DataSource Delegate
     
