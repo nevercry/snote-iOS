@@ -48,6 +48,7 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 if let resValue = response.result.value {
                     let json = JSON(resValue)
+                    print("JSON: \(json)")
                     
                     if let array = json.array {
                         self.notes = array
