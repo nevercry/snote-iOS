@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A070BD71C564843007DE3B7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A070BD61C564843007DE3B7 /* Note.swift */; };
+		4A070BD91C57B47A007DE3B7 /* HelpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A070BD81C57B47A007DE3B7 /* HelpMethods.swift */; };
 		4AAE83111C5535F400451CD7 /* SingleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */; };
 		4AAE83141C553F2B00451CD7 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */; };
 		4AAE83161C5542FE00451CD7 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		4A070BD61C564843007DE3B7 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		4A070BD81C57B47A007DE3B7 /* HelpMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMethods.swift; sourceTree = "<group>"; };
 		4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTextFieldCell.swift; sourceTree = "<group>"; };
 		4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
 		4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				4AF25F3C1C4E565700F28920 /* Main.storyboard */,
 				4AAE83121C5535FB00451CD7 /* Views */,
 				4AF25F3F1C4E565700F28920 /* Assets.xcassets */,
+				4A070BD81C57B47A007DE3B7 /* HelpMethods.swift */,
 				4AF25F411C4E565700F28920 /* LaunchScreen.storyboard */,
 				4AF25F441C4E565700F28920 /* Info.plist */,
 			);
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AF25F591C4E56D200F28920 /* NoteListViewController.swift in Sources */,
+				4A070BD91C57B47A007DE3B7 /* HelpMethods.swift in Sources */,
 				4AF25F3B1C4E565700F28920 /* SecondViewController.swift in Sources */,
 				4A070BD71C564843007DE3B7 /* Note.swift in Sources */,
 				4AF25F371C4E565700F28920 /* AppDelegate.swift in Sources */,

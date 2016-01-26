@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import MBProgressHUD
+
 
 class CreateNoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var doneBtn: UIBarButtonItem!
+    
     
     var note = Note()
     
@@ -19,6 +26,10 @@ class CreateNoteViewController: UIViewController, UITableViewDelegate, UITableVi
             static let NoteURL = "Note URL Cell"
             static let Note = "Note Cell"
             static let NoteContent = "Note Content Cell"
+        }
+        
+        struct SegueIdentifer {
+            static let UpdateNotes = "Update Notes"
         }
         
     }
@@ -41,6 +52,7 @@ class CreateNoteViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(animated)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateModel:", name: UITextFieldTextDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateModel:", name: UITextViewTextDidChangeNotification, object: nil)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -56,26 +68,77 @@ class CreateNoteViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     // MARK: - Actions
+    // Done
+    @IBAction func done(sender: UIBarButtonItem) {
+        createNote()
+    }
+    
     // 取消
     @IBAction func cancel(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func updateModel(aNotification: NSNotification) {
-        let textField = aNotification.object as! UITextField
-        let cell = textField.superview?.superview as! UITableViewCell
-        let cellId = cell.reuseIdentifier!
+        let object = aNotification.object
+        var cell: UITableViewCell
+        var cellId: String
+        var text = ""
+        
+        if (object!.isMemberOfClass(UITextField)) {
+            let textField = object as! UITextField
+            text = textField.text!
+            cell = textField.superview?.superview as! UITableViewCell
+        } else if (object!.isMemberOfClass(UITextView)) {
+            let textView = object as! UITextView
+            text = textView.text;
+            cell = textView.superview?.superview as! UITableViewCell
+        } else {
+            cell = UITableViewCell()
+        }
+        
+        cellId = cell.reuseIdentifier!
         
         switch cellId {
         case Constents.CellIdentifer.Note:
-            note.note = textField.text!
+            note.note = text
         case Constents.CellIdentifer.NoteTitle:
-            note.title = textField.text!
+            note.title = text
+            doneBtn.enabled = !text.isEmptyOrWhitespace()
         case Constents.CellIdentifer.NoteURL:
-            note.url = textField.text!
+            note.url = text
+        case Constents.CellIdentifer.NoteContent:
+            note.content = text
         default:
             break
         }
+    }
+    
+    // 创建笔记
+    func createNote() {
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        Alamofire.request(.POST, "http://10.0.1.9:3000/notes", parameters: note.toParameters(), encoding: .JSON)
+            .responseJSON { response in
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                switch response.result {
+                case .Failure:
+                    self.alertViewShow("请求失败", andMessage: "\(response.result.error)")
+                case .Success:
+                    self.alerViewShow("创建成功", andMessage: "", andHandler: { action in
+                        self.performSegueWithIdentifier(Constents.SegueIdentifer.UpdateNotes, sender: nil)
+                    })
+                }
+        }
+        
+    }
+    
+    func updateUI() {
+        // 改变Done Button
+        
     }
     
     // MARK: - UITableView DataSource Delegate
@@ -147,3 +210,16 @@ class CreateNoteViewController: UIViewController, UITableViewDelegate, UITableVi
     */
 
 }
+
+extension String {
+    func isEmptyOrWhitespace() -> Bool {
+        
+        if(self.isEmpty) {
+            return true
+        }
+        
+        return (self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "")
+    }
+}
+
+

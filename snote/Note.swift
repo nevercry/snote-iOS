@@ -15,6 +15,17 @@ struct Note {
     var note = ""
     var identifier = ""
     var categories:[String] = []
+    
+    /* 
+        title:
+        url:
+        content:
+        note:
+    */
+    
+    func toParameters() -> [String: String] {
+        return ["title": title, "url": url, "content": content, "note": note]
+    }
 }
 
 

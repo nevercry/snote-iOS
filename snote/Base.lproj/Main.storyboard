@@ -97,7 +97,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="URL:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xaM-g3-hC5">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -146,7 +146,7 @@
                                                     <rect key="frame" x="8" y="8" width="584" height="93"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                 </textView>
                                             </subviews>
                                             <constraints>
@@ -177,13 +177,20 @@
                                 <action selector="cancel:" destination="m9A-CQ-Mfu" id="0Qq-rm-L3n"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="4RP-78-N5J"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="4RP-78-N5J">
+                            <connections>
+                                <action selector="done:" destination="m9A-CQ-Mfu" id="iT3-8X-elt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBtn" destination="4RP-78-N5J" id="VEj-NS-0oZ"/>
                         <outlet property="tableView" destination="NjK-F8-SrU" id="RpO-WZ-zCP"/>
+                        <segue destination="hK3-Ar-IKp" kind="unwind" identifier="Update Notes" unwindAction="updateNotes:" id="HYo-eQ-FA8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XuW-7N-VEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hK3-Ar-IKp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3087" y="-320"/>
         </scene>

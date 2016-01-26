@@ -49,13 +49,18 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
                 print(response.data)     // server data
                 print(response.result)   // result of response serialization
                 
-                if let resValue = response.result.value {
-                    let json = JSON(resValue)
-                    print("JSON: \(json)")
-                    
-                    if let array = json.array {
-                        self.notes = array
-                        self.tableView.reloadData()
+                switch response.result {
+                case .Failure:
+                    self.alertViewShow("请求失败", andMessage: "\(response.result.error)")
+                case .Success:
+                    if let resValue = response.result.value {
+                        let json = JSON(resValue)
+                        print("JSON: \(json)")
+                        
+                        if let array = json.array {
+                            self.notes = array
+                            self.tableView.reloadData()
+                        }
                     }
                 }
         }
@@ -65,6 +70,10 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
     // 创建笔记
     @IBAction func createNote(sender: UIBarButtonItem) {
         
+    }
+    
+    @IBAction func updateNotes(sender: UIStoryboardSegue) {
+        loadNotes()
     }
     
     
