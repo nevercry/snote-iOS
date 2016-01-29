@@ -5,6 +5,7 @@ target 'snote' do
 pod 'Alamofire', '~> 3.1'
 pod 'MBProgressHUD', '~> 0.9'
 pod 'SwiftyJSON', '~> 2.3'
+pod 'Moya'
 
 end
 
