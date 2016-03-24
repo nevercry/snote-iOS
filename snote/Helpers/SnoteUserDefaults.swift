@@ -12,7 +12,7 @@ let accessTokenKey = "accessToken"
 
 
 class SnoteUserDefaults {
-    static let defaults = NSUserDefaults(suiteName: SnoteConfig.appGroupID)!
+    static let defaults = NSUserDefaults.standardUserDefaults()
     
-    static let isLogin = defaults.stringForKey(accessTokenKey) ? true : false
+    static var isLogon = defaults.stringForKey(accessTokenKey) == nil ? false:true
 }

@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 检查一下有没登录
+        
+        if SnoteUserDefaults.isLogon {
+            // 显示主页
+        } else {
+            // 显示登录
+        }
+        
         return true
     }
 
