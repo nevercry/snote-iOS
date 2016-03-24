@@ -10,7 +10,8 @@
 		4A070BD71C564843007DE3B7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A070BD61C564843007DE3B7 /* Note.swift */; };
 		4A070BD91C57B47A007DE3B7 /* HelpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A070BD81C57B47A007DE3B7 /* HelpMethods.swift */; };
 		4A070BDB1C5920FB007DE3B7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A070BDA1C5920FB007DE3B7 /* APIManager.swift */; };
-		4A1FB2AA1C9F30670054AA69 /* snoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1FB2A91C9F30670054AA69 /* snoteConfig.swift */; };
+		4A1FB2AA1C9F30670054AA69 /* SnoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1FB2A91C9F30670054AA69 /* SnoteConfig.swift */; };
+		4A1FB2AD1C9F348F0054AA69 /* SnoteUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1FB2AC1C9F348F0054AA69 /* SnoteUserDefaults.swift */; };
 		4AAE83111C5535F400451CD7 /* SingleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */; };
 		4AAE83141C553F2B00451CD7 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */; };
 		4AAE83161C5542FE00451CD7 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */; };
@@ -38,7 +39,8 @@
 		4A070BD61C564843007DE3B7 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		4A070BD81C57B47A007DE3B7 /* HelpMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMethods.swift; sourceTree = "<group>"; };
 		4A070BDA1C5920FB007DE3B7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		4A1FB2A91C9F30670054AA69 /* snoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = snoteConfig.swift; sourceTree = "<group>"; };
+		4A1FB2A91C9F30670054AA69 /* SnoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnoteConfig.swift; sourceTree = "<group>"; };
+		4A1FB2AC1C9F348F0054AA69 /* SnoteUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnoteUserDefaults.swift; sourceTree = "<group>"; };
 		4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTextFieldCell.swift; sourceTree = "<group>"; };
 		4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
 		4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				4A070BD81C57B47A007DE3B7 /* HelpMethods.swift */,
-				4A1FB2A91C9F30670054AA69 /* snoteConfig.swift */,
+				4A1FB2A91C9F30670054AA69 /* SnoteConfig.swift */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -100,6 +102,14 @@
 				4A070BD61C564843007DE3B7 /* Note.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4A1FB2AE1C9F34970054AA69 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4A1FB2AC1C9F348F0054AA69 /* SnoteUserDefaults.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		4A7383801C4FE0FB003835B0 /* Controllers */ = {
@@ -154,6 +164,7 @@
 				4A7383801C4FE0FB003835B0 /* Controllers */,
 				4AAE83121C5535FB00451CD7 /* Views */,
 				4A1FB2A51C9F2EE90054AA69 /* Configs */,
+				4A1FB2AE1C9F34970054AA69 /* Helpers */,
 			);
 			path = snote;
 			sourceTree = "<group>";
@@ -337,10 +348,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AF25F591C4E56D200F28920 /* NoteListViewController.swift in Sources */,
-				4A1FB2AA1C9F30670054AA69 /* snoteConfig.swift in Sources */,
+				4A1FB2AA1C9F30670054AA69 /* SnoteConfig.swift in Sources */,
 				4A070BD91C57B47A007DE3B7 /* HelpMethods.swift in Sources */,
 				4AF25F3B1C4E565700F28920 /* SecondViewController.swift in Sources */,
 				4A070BDB1C5920FB007DE3B7 /* APIManager.swift in Sources */,
+				4A1FB2AD1C9F348F0054AA69 /* SnoteUserDefaults.swift in Sources */,
 				4A070BD71C564843007DE3B7 /* Note.swift in Sources */,
 				4AF25F371C4E565700F28920 /* AppDelegate.swift in Sources */,
 				4AAE83111C5535F400451CD7 /* SingleTextFieldCell.swift in Sources */,

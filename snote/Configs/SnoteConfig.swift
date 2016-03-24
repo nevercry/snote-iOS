@@ -6,4 +6,8 @@
 //  Copyright © 2016 nevercry. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class SnoteConfig {
+    static let appGroupID: String = "group.nevercry.snote"
+}
