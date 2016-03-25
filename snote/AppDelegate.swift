@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if SnoteUserDefaults.isLogon {
             // 显示主页
+            
         } else {
             // 显示登录
+            startSignUpAndLogin()
         }
         
         return true
@@ -48,6 +50,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // MARK: Public
+    
+    func startSignUpAndLogin() {
+        let storyboard = UIStoryboard(name: "SignupAndLogin", bundle: nil);
+        let rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
+        window?.rootViewController = rootViewController
     }
 
 

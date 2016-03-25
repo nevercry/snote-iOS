@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PMW-An-pbO">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="evW-Bb-4Ar">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="PMW-An-pbO" customClass="MainViewController" customModule="snote" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g6S-nm-4ca"/>
+                        <viewControllerLayoutGuide type="bottom" id="goX-30-FrL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b4O-iE-Dt0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zG3-X4-aUK">
+                                <rect key="frame" x="20" y="550" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="5Qv-Pw-bAA">
+                                        <variation key="widthClass=regular" constant="200"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="100" id="aB7-tH-xtv"/>
+                                </constraints>
+                                <state key="normal" title="登录"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5Qv-Pw-bAA"/>
+                                        <exclude reference="aB7-tH-xtv"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="aB7-tH-xtv"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="5Qv-Pw-bAA"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcC-PP-WV0">
+                                <rect key="frame" x="550" y="550" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Wd2-9l-Clf"/>
+                                    <constraint firstAttribute="width" constant="100" id="sk9-Q1-47o">
+                                        <variation key="widthClass=regular" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="注册"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Wd2-9l-Clf"/>
+                                        <exclude reference="sk9-Q1-47o"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Wd2-9l-Clf"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="sk9-Q1-47o"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snote" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4u-iN-aw9">
+                                <rect key="frame" x="278" y="28" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="goX-30-FrL" firstAttribute="top" secondItem="zG3-X4-aUK" secondAttribute="bottom" constant="20" id="3gy-fK-ynk"/>
+                            <constraint firstItem="zG3-X4-aUK" firstAttribute="leading" secondItem="b4O-iE-Dt0" secondAttribute="leadingMargin" id="I2F-Hf-mlU"/>
+                            <constraint firstItem="a4u-iN-aw9" firstAttribute="top" secondItem="g6S-nm-4ca" secondAttribute="bottom" constant="8" id="QRa-1k-qUE"/>
+                            <constraint firstItem="goX-30-FrL" firstAttribute="top" secondItem="bcC-PP-WV0" secondAttribute="bottom" constant="20" id="QYB-3h-T7k"/>
+                            <constraint firstItem="a4u-iN-aw9" firstAttribute="centerX" secondItem="b4O-iE-Dt0" secondAttribute="centerX" id="Qkj-HS-yS8"/>
+                            <constraint firstItem="bcC-PP-WV0" firstAttribute="leading" secondItem="zG3-X4-aUK" secondAttribute="trailing" constant="100" id="fQJ-WQ-xfJ"/>
+                            <constraint firstItem="bcC-PP-WV0" firstAttribute="trailing" secondItem="b4O-iE-Dt0" secondAttribute="trailingMargin" id="iro-IT-cd4"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fQJ-WQ-xfJ"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="fQJ-WQ-xfJ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="80t-FZ-dG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="657" y="422"/>
+        </scene>
+    </scenes>
+</document>
