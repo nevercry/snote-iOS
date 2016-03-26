@@ -66,6 +66,13 @@ extension UIViewController {
         alertController.addAction(actionCancel)
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // 隐藏键盘
+        if !isFirstResponder() {
+            view.endEditing(true)
+        }
+    }
 }
 
 extension UIView {
