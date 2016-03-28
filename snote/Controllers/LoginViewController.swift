@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import MBProgressHUD
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
 
@@ -24,10 +25,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func login(sender: AnyObject) {
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
         let username = usernameTextField.text!
         let password = passwordTextField.text!
         // 登录
         SnoteProvider.request(.Login(name: username, password: password), completion: { result in
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             switch result {
             case let .Success(response):
                 let json = JSON(data: response.data)
@@ -45,9 +48,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 }
                 
                 if let token = json["token"].string {
-                    
                     SnoteUserDefaults.storeToken(token)
-                    // TODO: 跳转到主页
+                    let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+                    appDelegate?.startTabBar()
                 } else {
                     print(json["token"])
                 }

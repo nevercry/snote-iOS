@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MBProgressHUD
+import SwiftyJSON
 
 class SignupViewController: UIViewController,UITextFieldDelegate {
 
@@ -24,7 +26,51 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
     }
    
     @IBAction func login(sender: UIButton) {
-        // 注册
+        let username = usernameTextField.text!
+        let password = passwordTextField.text!
+        let conformPassword = conformPasswordTextField.text!
+        // 检查一下用户名是否符合规则
+        if !isValidUserName(username) {
+            alertViewShow("改用户名无法注册", andMessage: "请更换用户名重新注册")
+            return
+        }
+        
+        // 检查一下密码是否相同
+        if conformPassword != password {
+            alertViewShow("两次输入的密码不同", andMessage: "请重新输入正确的密码")
+            return
+        }
+        
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        SnoteProvider.request(.CreateUser(name: username,passwod: password), completion: { result in
+            switch result {
+            case let .Success(response):
+                let json = JSON(data: response.data)
+                do {
+                    try response.filterSuccessfulStatusCodes()
+                }
+                catch {
+                    if let errorMsg = json["message"].string {
+                        self.alertViewShow("注册失败", andMessage: errorMsg)
+                    } else {
+                        print("error no sever message")
+                    }
+                    
+                    return
+                }
+                
+                if let token = json["token"].string {
+                    SnoteUserDefaults.storeToken(token)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil);
+                    let rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+                    UIApplication.sharedApplication().delegate!.window!!.rootViewController = rootViewController
+                } else {
+                    print(json["token"])
+                }
+            case let .Failure(error):
+                print(error)
+            }
+        })        
     }
     
     func updateLoginButtonState() {

@@ -55,8 +55,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Public
     
     func startSignUpAndLogin() {
-        let storyboard = UIStoryboard(name: "SignupAndLogin", bundle: nil);
+        let storyboard = UIStoryboard(name: "SignupAndLogin", bundle: nil)
         let rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
+        window?.rootViewController = rootViewController
+    }
+    
+    func startTabBar() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
         window?.rootViewController = rootViewController
     }
 

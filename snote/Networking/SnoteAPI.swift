@@ -15,6 +15,7 @@ let SnoteProvider = MoyaProvider<Snote>()
 enum Snote {
     case CreateUser(name: String, passwod: String)
     case Login(name: String, password: String)
+//    case Notes
 }
 
 extension Snote: TargetType {
@@ -25,6 +26,9 @@ extension Snote: TargetType {
             return "/user/signup"
         case .Login(_, _):
             return "/user/login"
+//        case .Notes:
+//            return "/notes/"
+            
         }
     }
     

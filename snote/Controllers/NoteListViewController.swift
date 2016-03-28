@@ -41,29 +41,7 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
     func loadNotes() {
         MBProgressHUD.showHUDAddedTo(view, animated: true)
         
-        Alamofire.request(.GET, "http://10.0.1.9:3000/notes")
-            .responseJSON { response in
-                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                switch response.result {
-                case .Failure:
-                    self.alertViewShow("请求失败", andMessage: "\(response.result.error)")
-                case .Success:
-                    if let resValue = response.result.value {
-                        let json = JSON(resValue)
-                        print("JSON: \(json)")
-                        
-                        if let array = json.array {
-                            self.notes = array
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-        }
+        
     }
     
     // MARK: - Action
