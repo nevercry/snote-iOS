@@ -25,4 +25,8 @@ class SnoteUserDefaults {
     class func clearToken() {
         defaults.removeObjectForKey(accessTokenKey)
     }
+    
+    // token值
+    static var token = defaults.stringForKey(accessTokenKey) ?? ""
+    
 }

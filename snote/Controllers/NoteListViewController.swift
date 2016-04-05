@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Alamofire
 import MBProgressHUD
 import SwiftyJSON
+import RealmSwift
 
 
 class NoteListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -22,12 +22,16 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    var realm: Realm!
     
-    var notes:[JSON] = []
     
+    lazy var notes: Results<Note> = {
+        return self.realm.objects(Note).sorted("createdAt")
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        realm = try! Realm()
 
         loadNotes()
     }
@@ -38,9 +42,50 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func loadNotes() {
-        MBProgressHUD.showHUDAddedTo(view, animated: true)
         
-        
+        if notes.count == 0 {
+            // 没有数据，从服务端获取
+            MBProgressHUD.showHUDAddedTo(view, animated: true)
+            SnoteProvider.request(.Notes, completion: { (result) in
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                switch result {
+                case .Success(let response):
+                    let json = JSON(data: response.data)
+                    
+                    do {
+                        try response.filterSuccessfulStatusCodes()
+                    }
+                    catch {
+                        if let errorMsg = json["message"].string {
+                            self.alertViewShow("登录失败", andMessage: errorMsg)
+                        } else {
+                            print("error no sever message")
+                        }
+                        return
+                    }
+                    // 解析服务器数据
+                    if let noteArr = json.array {
+                        for note in noteArr {
+                            let _note = Note()
+                            _note.noteID = note["_id"].string!
+                            _note.title = note["title"].string!
+                            _note.url = note["url"].string!
+                            _note.note = note["note"].string!
+                            let dateStr = note["meta"]["createAt"].string!
+                            _note.createdAt = DateHelper().transToDate(dateStr)
+                            
+                            try! self.realm.write({
+                                self.realm.add(_note, update: true)
+                            })
+                        }
+                        self.tableView.reloadData()
+                    }
+                case .Failure(let error):
+                    print(error)
+                    self.alertViewShow("网络请求失败", andMessage: "请检查网络连接")
+                }
+            })
+        }
     }
     
     // MARK: - Action
@@ -67,11 +112,11 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         
-        var note = notes[indexPath.row]
+        let note = notes[indexPath.row]
         
         if cell == nil {
             cell = UITableViewCell.init(style: .Default, reuseIdentifier: "Cell")
-            cell?.textLabel?.text = note["title"].string
+            cell?.textLabel?.text = note.title
         }
         
         return cell!

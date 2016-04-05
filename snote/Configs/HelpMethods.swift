@@ -89,5 +89,13 @@ extension UIView {
     }
 }
 
+struct DateHelper {
+    func transToDate(dateString: String) -> NSDate {
+        let dateFormater = NSDateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return dateFormater.dateFromString(dateString)!
+    }
+}
+
 
 

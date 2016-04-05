@@ -10,12 +10,12 @@ import Foundation
 import Moya
 
 // MARK: - Provider setup
-let SnoteProvider = MoyaProvider<Snote>()
+let SnoteProvider = MoyaProvider<Snote>(endpointClosure: endpointClosure)
 
 enum Snote {
     case CreateUser(name: String, passwod: String)
     case Login(name: String, password: String)
-//    case Notes
+    case Notes
 }
 
 extension Snote: TargetType {
@@ -26,9 +26,8 @@ extension Snote: TargetType {
             return "/user/signup"
         case .Login(_, _):
             return "/user/login"
-//        case .Notes:
-//            return "/notes/"
-            
+        case .Notes:
+            return "/notes/"
         }
     }
     
@@ -36,6 +35,8 @@ extension Snote: TargetType {
         switch self {
         case .CreateUser, .Login:
             return .POST
+        case .Notes:
+            return .GET
         }
     }
     
@@ -45,6 +46,8 @@ extension Snote: TargetType {
             return ["name": name, "password": password]
         case .Login(let name, let password):
             return ["name": name, "password": password]
+        case .Notes:
+            return nil
         }
     }
     
@@ -54,15 +57,26 @@ extension Snote: TargetType {
             return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
         case .Login:
             return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
+        case .Notes:
+            return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
         }
+    }
+}
+
+let endpointClosure = { (target: Snote) -> Endpoint<Snote> in
+    let endpoint: Endpoint<Snote> =  Endpoint<Snote>(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+    
+    switch target {
+    case .CreateUser, .Login:
+        return endpoint
+    default:
+        return endpoint.endpointByAddingHTTPHeaderFields(["x-access-token":SnoteUserDefaults.token])
     }
 }
 
 public func url(route: TargetType) -> String {
     return route.baseURL.URLByAppendingPathComponent(route.path).absoluteString
 }
-
-
 
 // MARK: - Helpers
 private extension String {
