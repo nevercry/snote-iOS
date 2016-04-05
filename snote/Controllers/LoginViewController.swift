@@ -56,6 +56,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 }
             case let .Failure(error):
                 print(error)
+                self.alertViewShow("网络请求失败", andMessage: "请检查网络连接")
             }
         })
     }
