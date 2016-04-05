@@ -23,7 +23,6 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
-    
     var notes:[JSON] = []
     
 

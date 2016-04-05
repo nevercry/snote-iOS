@@ -16,12 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
         // 检查一下有没登录
         
         if SnoteUserDefaults.isLogon {
             // 显示主页
-            
+            startTabBar()
         } else {
             // 显示登录
             startSignUpAndLogin()
@@ -53,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: Public
-    
     func startSignUpAndLogin() {
         let storyboard = UIStoryboard(name: "SignupAndLogin", bundle: nil)
         let rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController")

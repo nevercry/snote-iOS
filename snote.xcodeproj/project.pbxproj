@@ -133,10 +133,8 @@
 			children = (
 				4AF25F581C4E56D200F28920 /* NoteListViewController.swift */,
 				4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */,
-				4A3B9E181CA515EA00A4E479 /* MainViewController.swift */,
-				4A4D92F01CA53C1400438FC4 /* LoginViewController.swift */,
-				4A4D92F21CA552A400438FC4 /* SignupViewController.swift */,
 				4A4D92F71CA8FAEE00438FC4 /* SettingViewController.swift */,
+				4AF962F31CB3C916007BCE45 /* SignupAndLogin */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +194,16 @@
 				4AF25F4F1C4E565800F28920 /* Info.plist */,
 			);
 			path = snoteTests;
+			sourceTree = "<group>";
+		};
+		4AF962F31CB3C916007BCE45 /* SignupAndLogin */ = {
+			isa = PBXGroup;
+			children = (
+				4A3B9E181CA515EA00A4E479 /* MainViewController.swift */,
+				4A4D92F01CA53C1400438FC4 /* LoginViewController.swift */,
+				4A4D92F21CA552A400438FC4 /* SignupViewController.swift */,
+			);
+			name = SignupAndLogin;
 			sourceTree = "<group>";
 		};
 		99E5485B096D25DEBC96B27B /* Pods */ = {
