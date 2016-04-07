@@ -102,7 +102,7 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func updateNotes(sender: UIStoryboardSegue) {
-        loadNotes()
+        tableView.reloadData()
     }
     
     
