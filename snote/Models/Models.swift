@@ -33,6 +33,11 @@ class Note: Object {
 class Category: Object {
     dynamic var categoryID = ""
     dynamic var name = ""
+    dynamic var createdAt = NSDate(timeIntervalSince1970: 1)
+    
+    override static func primaryKey() -> String? {
+        return "categoryID"
+    }
     
     var notes:[Note] {
         return linkingObjects(Note.self, forProperty: "category")

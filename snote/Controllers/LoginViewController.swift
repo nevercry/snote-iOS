@@ -25,6 +25,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func login(sender: AnyObject) {
+        view.endEditing(true)
         MBProgressHUD.showHUDAddedTo(view, animated: true)
         let username = usernameTextField.text!
         let password = passwordTextField.text!
@@ -42,6 +43,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                         self.alertViewShow("登录失败", andMessage: errorMsg)
                     } else {
                         print("error no sever message")
+                        self.alertViewShow("error no sever message", andMessage: "error no sever message")
                     }
                     
                     return

@@ -74,8 +74,15 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
                             let dateStr = note["meta"]["createAt"].string!
                             _note.createdAt = DateHelper().transToDate(dateStr)
                             
+                            let _category =  Category()
+                            _category.categoryID = note["category"]["_id"].string!
+                            _category.name = note["category"]["name"].string!
+                            
+                            _note.category = _category
+                            
                             try! self.realm.write({
                                 self.realm.add(_note, update: true)
+                                self.realm.add(_category, update: true)
                             })
                         }
                         self.tableView.reloadData()
@@ -110,27 +117,38 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
-        
         let note = notes[indexPath.row]
         
-        if cell == nil {
-            cell = UITableViewCell.init(style: .Default, reuseIdentifier: "Cell")
-            cell?.textLabel?.text = note.title
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("NoteCell")
+        cell?.textLabel?.text = note.title
+        cell?.detailTextLabel?.text = note.category?.name
         
         return cell!
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let segueID = segue.identifier
+        
+        if segueID == "showNoteDetail" {
+            let cell = sender as! UITableViewCell
+            let index = tableView.indexPathForCell(cell)!
+            let note = notes[index.row]
+            let noteDetailControl = segue.destinationViewController as! NoteDetailViewController
+            noteDetailControl.note = note
+        }
     }
-    */
+    
     
     
     

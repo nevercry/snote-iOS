@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // 数据库迁移设置
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                    // The enumerate(_:_:) method iterates
+                    // over every Person object stored in the Realm file
+                    migration.enumerate(Category.className()) { oldObject, newObject in
+                        // combine name fields into a single field
+                        newObject!["createdAt"] = NSDate(timeIntervalSince1970: 1)
+                    }
+                }
+        })
         // 检查一下有没登录
         
         if SnoteUserDefaults.isLogon {

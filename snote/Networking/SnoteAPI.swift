@@ -16,6 +16,8 @@ enum Snote {
     case CreateUser(name: String, passwod: String)
     case Login(name: String, password: String)
     case Notes
+    case Categories
+    case CreateCategory(name: String)
 }
 
 extension Snote: TargetType {
@@ -28,14 +30,18 @@ extension Snote: TargetType {
             return "/user/login"
         case .Notes:
             return "/notes/"
+        case .Categories:
+            return "/categories/"
+        case .CreateCategory(_):
+            return "/categories/"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .CreateUser, .Login:
+        case .CreateUser, .Login, .CreateCategory:
             return .POST
-        case .Notes:
+        case .Notes, .Categories:
             return .GET
         }
     }
@@ -46,8 +52,10 @@ extension Snote: TargetType {
             return ["name": name, "password": password]
         case .Login(let name, let password):
             return ["name": name, "password": password]
-        case .Notes:
+        case .Notes, .Categories:
             return nil
+        case .CreateCategory(let name):
+            return ["name": name]
         }
     }
     
@@ -58,6 +66,10 @@ extension Snote: TargetType {
         case .Login:
             return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
         case .Notes:
+            return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
+        case .Categories:
+            return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
+        case .CreateCategory:
             return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
         }
     }

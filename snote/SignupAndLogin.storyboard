@@ -308,7 +308,7 @@
                                 <rect key="frame" x="285" y="208" width="30" height="30"/>
                                 <state key="normal" title="注册"/>
                                 <connections>
-                                    <action selector="login:" destination="Cyw-VA-ArT" eventType="touchUpInside" id="9cl-rL-jBk"/>
+                                    <action selector="signup:" destination="Cyw-VA-ArT" eventType="touchUpInside" id="TAQ-hE-UU3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -343,8 +343,8 @@
                     <connections>
                         <outlet property="cancelButton" destination="frV-og-R5u" id="FIe-6e-fgd"/>
                         <outlet property="conformPasswordTextField" destination="nLg-3n-VP6" id="6od-oB-bkh"/>
-                        <outlet property="loginButton" destination="39F-sD-ae5" id="wbN-9n-3ZN"/>
                         <outlet property="passwordTextField" destination="Sr0-7D-seD" id="v6W-Ja-Nhn"/>
+                        <outlet property="signupButton" destination="39F-sD-ae5" id="OEa-ct-h0x"/>
                         <outlet property="usernameTextField" destination="g1M-Cp-nAA" id="QCO-lc-Nf8"/>
                     </connections>
                 </viewController>

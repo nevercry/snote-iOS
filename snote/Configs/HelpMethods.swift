@@ -50,9 +50,9 @@ extension UIViewController {
         return RegexHelper.init(mobiePhoneRex).match(mobile)
     }
     
-    // 验证有效用户名 6-20位 英文和数字组合
+    // 验证有效用户名 4-20位 英文和数字组合
     func isValidUserName(userName: String) -> Bool {
-        let userNameRex = "^[A-Za-z][A-Za-z0-9]{5,19}+$"
+        let userNameRex = "^[A-Za-z][A-Za-z0-9]{3,19}+$"
         return RegexHelper.init(userNameRex).match(userName)
     }
     

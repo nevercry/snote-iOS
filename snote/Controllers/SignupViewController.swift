@@ -16,7 +16,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var conformPasswordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signupButton: UIButton!
     
     // MARK: - Buttons Action
     @IBAction func cancel(sender: UIButton) {
@@ -25,13 +25,14 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
    
-    @IBAction func login(sender: UIButton) {
+    @IBAction func signup(sender: UIButton) {
+        view.endEditing(true)
         let username = usernameTextField.text!
         let password = passwordTextField.text!
         let conformPassword = conformPasswordTextField.text!
         // 检查一下用户名是否符合规则
         if !isValidUserName(username) {
-            alertViewShow("改用户名无法注册", andMessage: "请更换用户名重新注册")
+            alertViewShow("该用户名无法注册", andMessage: "请更换用户名重新注册")
             return
         }
         
@@ -74,7 +75,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
     }
     
     func updateLoginButtonState() {
-        loginButton.enabled = (usernameTextField.hasText() && passwordTextField.hasText() && conformPasswordTextField.hasText()) ? true : false
+        signupButton.enabled = (usernameTextField.hasText() && passwordTextField.hasText() && conformPasswordTextField.hasText()) ? true : false
     }
 
     // MARK: - View LifeCycle
