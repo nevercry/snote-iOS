@@ -319,6 +319,7 @@
                         <outlet property="doneBtn" destination="gNg-vp-hUr" id="DGr-oq-8T4"/>
                         <outlet property="pickerAccessorView" destination="fzk-Sb-4og" id="wGF-lG-GmF"/>
                         <outlet property="pickerView" destination="1Ee-Wg-Gep" id="Lsc-6e-iw4"/>
+                        <segue destination="xoN-DA-KsW" kind="unwind" identifier="Update Notes" unwindAction="updateNotes:" id="cXA-nX-u84"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SrK-pV-j1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -347,6 +348,7 @@
                         <outlet property="delegate" destination="d2u-v8-cFs" id="dYu-Ak-ar3"/>
                     </connections>
                 </pickerView>
+                <exit id="xoN-DA-KsW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3166" y="-1084"/>
         </scene>

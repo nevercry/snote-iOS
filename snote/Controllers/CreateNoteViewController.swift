@@ -246,26 +246,52 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
         }
     }
     
-    // 创建笔记
+    // MARK: - 创建笔记
     func createNote() {
-        MBProgressHUD.showHUDAddedTo(view, animated: true)
-//        Alamofire.request(.POST, "http://10.0.1.9:3000/notes", parameters: note.toParameters(), encoding: .JSON)
-//            .responseJSON { response in
-//                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
-//                print(response.request)  // original URL request
-//                print(response.response) // URL response
-//                print(response.data)     // server data
-//                print(response.result)   // result of response serialization
-//                
-//                switch response.result {
-//                case .Failure:
-//                    self.alertViewShow("请求失败", andMessage: "\(response.result.error)")
-//                case .Success:
-//                    self.alerViewShow("创建成功", andMessage: "", andHandler: { action in
-//                        self.performSegueWithIdentifier(Constents.SegueIdentifer.UpdateNotes, sender: nil)
-//                    })
-//                }
-//        }
+        MBProgressHUD.showHUDAddedTo(navigationController?.view, animated: true)
+        SnoteProvider.request(.CreateNote(
+            title: note.title,
+            url: note.url,
+            content: note.content,
+            note: note.note,
+            category: note.category!.categoryID
+        )) { (result) in
+            MBProgressHUD.hideHUDForView(self.navigationController?.view, animated: true)
+            switch result {
+            case .Success(let response):
+                let json = JSON(data: response.data)
+                
+                do {
+                    try response.filterSuccessfulStatusCodes()
+                }
+                catch {
+                    if let errorMsg = json["message"].string {
+                        self.alertViewShow("创建笔记失败", andMessage: errorMsg)
+                    } else {
+                        print("error no sever message")
+                        self.alertViewShow("创建笔记失败", andMessage: "error no sever message")
+                    }
+                    return
+                }
+                // 解析服务器数据
+                if let noteJSON = json.dictionary {
+                    
+                    self.note.noteID = noteJSON["_id"]!.string!
+                    let dateStr = noteJSON["meta"]!["createAt"].string!
+                    self.note.createdAt = DateHelper().transToDate(dateStr)
+                    
+                    try! self.realm.write({
+                        self.realm.add(self.note, update: true)
+                    })
+                }
+                self.performSegueWithIdentifier(Constents.SegueIdentifer.UpdateNotes, sender: nil)
+                
+            case .Failure(let error):
+                print(error)
+                self.alertViewShow("网络请求失败", andMessage: "请检查网络连接")
+            }
+            
+        }
         
     }
     

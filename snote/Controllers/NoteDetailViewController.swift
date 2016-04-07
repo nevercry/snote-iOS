@@ -34,9 +34,10 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate,SFSafariView
         let contentArrText = NSAttributedString.init(string: (note!.content + "\n"), attributes: [
             NSFontAttributeName:UIFont.preferredFontForTextStyle(UIFontTextStyleBody),
             ])
+        let linkUrl = (note!.url.hasPrefix("http")) ? note!.url : ("http://" + note!.url)
         let linkArrText = NSAttributedString.init(string: (note!.url + "\n"), attributes: [
             NSFontAttributeName:UIFont.preferredFontForTextStyle(UIFontTextStyleBody),
-            NSLinkAttributeName:note!.url,
+            NSLinkAttributeName:linkUrl,
             NSUnderlineStyleAttributeName:NSUnderlineStyle.StyleSingle.rawValue
             ])
         let noteArrText = NSAttributedString.init(string: ("\n\n备注：" + note!.note), attributes: [
