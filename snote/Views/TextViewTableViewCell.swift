@@ -12,6 +12,7 @@ class TextViewTableViewCell: UITableViewCell, UITextViewDelegate {
     
     var placeholderText: String? {
         didSet {
+            placeholderLabel.hidden = !textView.text.isEmpty
             placeholderLabel.text = placeholderText 
         }
     }
@@ -20,8 +21,6 @@ class TextViewTableViewCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView! {
         didSet {
             textView.delegate = self
-           
-            
         }
     }
     override func awakeFromNib() {

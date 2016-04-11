@@ -11,7 +11,7 @@ import RealmSwift
 import MBProgressHUD
 import SwiftyJSON
 
-class EditNoteTVC: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
+class EditNoteTVC: UITableViewController, UITextFieldDelegate {
     var note: Note?
     var realm: Realm!
     var updateParams: [String:String] = [:]
@@ -54,9 +54,6 @@ class EditNoteTVC: UITableViewController, UITextFieldDelegate, UITextViewDelegat
         didSet {
             categoryTextField?.text = selectedCategory?.name
             updateParams["category"] = selectedCategory!.categoryID
-            try! realm.write({ 
-                note!.category = selectedCategory
-            })
             updateDoneButton()
         }
     }
@@ -70,11 +67,7 @@ class EditNoteTVC: UITableViewController, UITextFieldDelegate, UITextViewDelegat
         realm = try! Realm()
         clearsSelectionOnViewWillAppear = false
         title = "修改笔记"
-        // 设置当前选中的分类
-        if let _ = note?.category {
-            let catIndex = categories.indexOf(note!.category!)
-            pickerView.selectedRowInComponent(catIndex!)
-        }
+        
         
     }
     
@@ -136,29 +129,22 @@ class EditNoteTVC: UITableViewController, UITextFieldDelegate, UITextViewDelegat
         
         let text = (object?.text)! as String
         
-        try! realm.write({ 
-            switch tag {
-            case Constents.TextFieldTag.Note.rawValue:
-                note!.note = text
-                updateParams["note"] = text
-            case Constents.TextFieldTag.NoteTitle.rawValue:
-                note!.title = text
-                updateParams["title"] = text
-            case Constents.TextFieldTag.NoteURL.rawValue:
-                note!.url = text
-                updateParams["url"] = text
-            case Constents.ContentTextViewTag:
-                note!.content = text
-                updateParams["content"] = text
-            case Constents.TextFieldTag.CreatCategory.rawValue:
-                newCategoryName = text // 创建新分类时的临时保存的分类名，来调接口
-            case Constents.TextFieldTag.Category.rawValue:
-                note!.category = selectedCategory
-                updateParams["category"] = selectedCategory!.categoryID
-            default:
-                break
-            }
-        })
+        switch tag {
+        case Constents.TextFieldTag.Note.rawValue:
+            updateParams["note"] = text
+        case Constents.TextFieldTag.NoteTitle.rawValue:
+            updateParams["title"] = text
+        case Constents.TextFieldTag.NoteURL.rawValue:
+            updateParams["url"] = text
+        case Constents.ContentTextViewTag:
+            updateParams["content"] = text
+        case Constents.TextFieldTag.CreatCategory.rawValue:
+            newCategoryName = text // 创建新分类时的临时保存的分类名，来调接口
+        case Constents.TextFieldTag.Category.rawValue:
+            updateParams["category"] = selectedCategory!.categoryID
+        default:
+            break
+        }
         
         updateDoneButton()
     }
@@ -261,6 +247,15 @@ class EditNoteTVC: UITableViewController, UITextFieldDelegate, UITextViewDelegat
     // MARK: - 更新笔记
     func updateNote() {
         if updateParams.keys.count > 0 {
+            try! self.realm.write({
+                for (key,value) in updateParams {
+                    if key == "category" {
+                        note?.category = selectedCategory
+                    } else {
+                        note?.setValue(value, forKey: key)
+                    }
+                }
+            })
             MBProgressHUD.showHUDAddedTo(navigationController?.view, animated: true)
             SnoteProvider.request(.UpdateNote(id: note!.noteID, params: updateParams)) { (result) in
                 MBProgressHUD.hideAllHUDsForView(self.navigationController?.view, animated: true)
@@ -288,6 +283,7 @@ class EditNoteTVC: UITableViewController, UITextFieldDelegate, UITextViewDelegat
 //                        })
 //                        
 //                    }
+                    
                     // 返回并更新数据
                     self.performSegueWithIdentifier(Constents.SegueIdentifer.UpdateNotes, sender: nil)
                 case .Failure(let error):
