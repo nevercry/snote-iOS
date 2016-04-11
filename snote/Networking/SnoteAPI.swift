@@ -17,6 +17,7 @@ enum Snote {
     case Login(name: String, password: String)
     case Notes
     case CreateNote(title: String, url: String, content: String, note: String, category: String)
+    case DeleteNote(id: String)
     case Categories
     case CreateCategory(name: String)
 }
@@ -31,6 +32,8 @@ extension Snote: TargetType {
             return "/user/login"
         case .Notes, .CreateNote(_, _, _, _, _):
             return "/notes/"
+        case .DeleteNote(let id):
+            return "/notes/\(id)"
         case .Categories,.CreateCategory(_):
             return "/categories/"
         }
@@ -42,6 +45,8 @@ extension Snote: TargetType {
             return .POST
         case .Notes, .Categories:
             return .GET
+        case .DeleteNote:
+            return .DELETE
         }
     }
     
@@ -51,7 +56,7 @@ extension Snote: TargetType {
             return ["name": name, "password": password]
         case .Login(let name, let password):
             return ["name": name, "password": password]
-        case .Notes, .Categories:
+        case .Notes, .Categories, .DeleteNote:
             return nil
         case .CreateNote(let title, let url, let content, let note, let category):
             return ["title": title, "url": url, "content": content, "note": note, "category": category]
@@ -74,6 +79,8 @@ extension Snote: TargetType {
         case .CreateCategory:
             return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
         case .CreateNote:
+            return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
+        case .DeleteNote:
             return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
         }
     }

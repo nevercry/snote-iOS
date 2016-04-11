@@ -64,7 +64,6 @@
                     <navigationItem key="navigationItem" title="Notes" id="ddC-9T-IPW">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="F5K-4Z-9gf">
                             <connections>
-                                <action selector="createNote:" destination="9pv-A4-QxB" id="w1C-AB-RDo"/>
                                 <segue destination="09G-d8-JTM" kind="presentation" id="f3Q-mo-Dku"/>
                             </connections>
                         </barButtonItem>
