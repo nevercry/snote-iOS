@@ -13,19 +13,13 @@ import RealmSwift
 
 class NoteListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - 属性
-    @IBOutlet weak var tableView: UITableView! {
-        didSet {
-            tableView.delegate = self
-            tableView.dataSource = self
-        }
-    }
-    
+    @IBOutlet weak var tableView: UITableView!
     var realm: Realm!
     
     lazy var notes: Results<Note> = {
         return self.realm.objects(Note).sorted("createdAt")
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
@@ -39,7 +33,8 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
             loadNewNotes()
         }
     }
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -47,7 +42,7 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func handleRefresh(refreshCtrol: UIRefreshControl) {
         loadNewNotes { 
-            self.tableView.layoutIfNeeded()
+            //self.tableView.layoutIfNeeded()
             refreshCtrol.endRefreshing()
         }
     }
