@@ -18,6 +18,7 @@ enum Snote {
     case Notes
     case CreateNote(title: String, url: String, content: String, note: String, category: String)
     case DeleteNote(id: String)
+    case UpdateNote(id: String, params:[String:String]?)
     case Categories
     case CreateCategory(name: String)
 }
@@ -26,27 +27,31 @@ extension Snote: TargetType {
     var baseURL: NSURL { return NSURL(string: "http://10.0.1.15:3000/api/v1")! }
     var path: String {
         switch self {
-        case .CreateUser(_, _):
+        case .CreateUser:
             return "/user/signup"
-        case .Login(_, _):
+        case .Login:
             return "/user/login"
-        case .Notes, .CreateNote(_, _, _, _, _):
+        case .Notes, .CreateNote:
             return "/notes/"
         case .DeleteNote(let id):
             return "/notes/\(id)"
-        case .Categories,.CreateCategory(_):
+        case .UpdateNote(let id, _):
+            return "/notes/\(id)"
+        case .Categories, .CreateCategory:
             return "/categories/"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .CreateUser, .Login, .CreateNote,.CreateCategory:
+        case .CreateUser, .Login, .CreateNote, .CreateCategory:
             return .POST
         case .Notes, .Categories:
             return .GET
         case .DeleteNote:
             return .DELETE
+        case .UpdateNote:
+            return .PUT
         }
     }
     
@@ -60,9 +65,11 @@ extension Snote: TargetType {
             return nil
         case .CreateNote(let title, let url, let content, let note, let category):
             return ["title": title, "url": url, "content": content, "note": note, "category": category]
+        case .UpdateNote(_, let params):
+            print("发送给服务器 更新笔记接口 params \(params)")
+            return params
         case .CreateCategory(let name):
             return ["name": name]
-        
         }
     }
     
@@ -81,6 +88,8 @@ extension Snote: TargetType {
         case .CreateNote:
             return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
         case .DeleteNote:
+            return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
+        case .UpdateNote:
             return "{\"token\":abcdefg.higklmn.opqrst}".UTF8EncodedData
         }
     }

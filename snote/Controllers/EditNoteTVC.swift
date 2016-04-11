@@ -1,27 +1,26 @@
 //
-//  CreateNoteViewController.swift
+//  EditNoteTVC.swift
 //  snote
 //
-//  Created by nevercry on 1/25/16.
+//  Created by nevercry on 4/11/16.
 //  Copyright © 2016 nevercry. All rights reserved.
 //
 
 import UIKit
-import SwiftyJSON
-import MBProgressHUD
 import RealmSwift
+import MBProgressHUD
+import SwiftyJSON
 
-
-class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class EditNoteTVC: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
+    var note: Note?
+    var realm: Realm!
+    var updateParams: [String:String] = [:]
     
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var pickerAccessorView: UIToolbar!
     
-    var realm: Realm!
-    var note = Note()
-    
-    lazy var categories:Results<Category> = {
+    lazy var categories: Results<Category> = {
         return self.realm.objects(Category).sorted("createdAt")
     }()
     
@@ -36,7 +35,7 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
         }
         
         struct SegueIdentifer {
-            static let UpdateNotes = "Update Notes"
+            static let UpdateNotes = "Note Detail Update Notes"
         }
         
         enum TextFieldTag: Int {
@@ -54,17 +53,29 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
     var selectedCategory: Category? {
         didSet {
             categoryTextField?.text = selectedCategory?.name
-            note.category = selectedCategory
+            updateParams["category"] = selectedCategory!.categoryID
+            try! realm.write({ 
+                note!.category = selectedCategory
+            })
             updateDoneButton()
         }
     }
     var categoryTextField: UITextField?
     var isFirstLoad = true
     var newCategoryName: String?
-        
+    
+    // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
+        clearsSelectionOnViewWillAppear = false
+        title = "修改笔记"
+        // 设置当前选中的分类
+        if let _ = note?.category {
+            let catIndex = categories.indexOf(note!.category!)
+            pickerView.selectedRowInComponent(catIndex!)
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -76,14 +87,14 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-         NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // MARK: - Actions
     // Done
     @IBAction func done(sender: UIBarButtonItem) {
         view.endEditing(true)
-        createNote()
+        updateNote()
     }
     
     // 取消
@@ -115,7 +126,6 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
         
         alertC.addAction(cancelAction)
         alertC.addAction(doneAction)
-        
         presentViewController(alertC, animated: true, completion: nil)
     }
     
@@ -126,25 +136,33 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
         
         let text = (object?.text)! as String
         
-        switch tag {
-        case Constents.TextFieldTag.Note.rawValue:
-            note.note = text
-        case Constents.TextFieldTag.NoteTitle.rawValue:
-            note.title = text
-        case Constents.TextFieldTag.NoteURL.rawValue:
-            note.url = text
-        case Constents.ContentTextViewTag:
-            note.content = text
-        case Constents.TextFieldTag.CreatCategory.rawValue:
-            newCategoryName = text // 创建新分类时的临时保存的分类名，来调接口
-        case Constents.TextFieldTag.Category.rawValue:
-            note.category = selectedCategory
-        default:
-            break
-        }
+        try! realm.write({ 
+            switch tag {
+            case Constents.TextFieldTag.Note.rawValue:
+                note!.note = text
+                updateParams["note"] = text
+            case Constents.TextFieldTag.NoteTitle.rawValue:
+                note!.title = text
+                updateParams["title"] = text
+            case Constents.TextFieldTag.NoteURL.rawValue:
+                note!.url = text
+                updateParams["url"] = text
+            case Constents.ContentTextViewTag:
+                note!.content = text
+                updateParams["content"] = text
+            case Constents.TextFieldTag.CreatCategory.rawValue:
+                newCategoryName = text // 创建新分类时的临时保存的分类名，来调接口
+            case Constents.TextFieldTag.Category.rawValue:
+                note!.category = selectedCategory
+                updateParams["category"] = selectedCategory!.categoryID
+            default:
+                break
+            }
+        })
         
         updateDoneButton()
     }
+    
     // MARK: - 获取分类数据
     func loadCategories() {
         MBProgressHUD.showHUDAddedTo(view.window, animated: true)
@@ -238,95 +256,92 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
         }
     }
     
-    // MARK: - 创建笔记
-    func createNote() {
-        MBProgressHUD.showHUDAddedTo(navigationController?.view, animated: true)
-        SnoteProvider.request(.CreateNote(
-            title: note.title,
-            url: note.url,
-            content: note.content,
-            note: note.note,
-            category: note.category!.categoryID
-        )) { (result) in
-            MBProgressHUD.hideHUDForView(self.navigationController?.view, animated: true)
-            switch result {
-            case .Success(let response):
-                let json = JSON(data: response.data)
-                
-                do {
-                    try response.filterSuccessfulStatusCodes()
-                }
-                catch {
-                    if let errorMsg = json["message"].string {
-                        self.alertViewShow("创建笔记失败", andMessage: errorMsg)
-                    } else {
-                        print("error no sever message")
-                        self.alertViewShow("创建笔记失败", andMessage: "error no sever message")
-                    }
-                    return
-                }
-                // 解析服务器数据
-                if let noteJSON = json.dictionary {
-                    
-                    self.note.noteID = noteJSON["_id"]!.string!
-                    let dateStr = noteJSON["meta"]!["createAt"].string!
-                    self.note.createdAt = DateHelper().transToDate(dateStr)
-                    
-                    try! self.realm.write({
-                        self.realm.add(self.note, update: true)
-                    })
-                }
-                self.performSegueWithIdentifier(Constents.SegueIdentifer.UpdateNotes, sender: nil)
-                
-            case .Failure(let error):
-                print(error)
-                self.alertViewShow("网络请求失败", andMessage: "请检查网络连接")
-            }
-            
-        }
-        
-    }
     
+    
+    // MARK: - 更新笔记
+    func updateNote() {
+        if updateParams.keys.count > 0 {
+            MBProgressHUD.showHUDAddedTo(navigationController?.view, animated: true)
+            SnoteProvider.request(.UpdateNote(id: note!.noteID, params: updateParams)) { (result) in
+                MBProgressHUD.hideAllHUDsForView(self.navigationController?.view, animated: true)
+                switch result {
+                case .Success(let response):
+                    let json = JSON(data: response.data)
+                    
+                    do {
+                        try response.filterSuccessfulStatusCodes()
+                    }
+                    catch {
+                        if let errorMsg = json["message"].string {
+                            self.alertViewShow("更新笔记失败", andMessage: errorMsg)
+                        } else {
+                            print("error no sever message")
+                            self.alertViewShow("更新笔记失败", andMessage: "error no sever message")
+                        }
+                        return
+                    }
+                    // 解析服务器数据
+//                    if let dataDic = json.dictionary {
+//                        let updateNote = dataDic["note"]!.dictionary!
+//                        try! self.realm.write({
+//                            self.note?.createdAt
+//                        })
+//                        
+//                    }
+                    // 返回并更新数据
+                    self.performSegueWithIdentifier(Constents.SegueIdentifer.UpdateNotes, sender: nil)
+                case .Failure(let error):
+                    print(error)
+                    self.alertViewShow("网络请求失败", andMessage: "请检查网络连接")
+                }
+            }
+        }
+    }
     
     func updateDoneButton() {
-        // 改变Done Button
-        doneBtn.enabled = (note.title.characters.count > 0 && note.category != nil)
+        doneBtn.enabled = updateParams.keys.count > 0
     }
     
-    // MARK: - UITableView DataSource Delegate
-    
+    // MARK: - Table view data source
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 5
+    }
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 4
-        }
         return 1
     }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2;
-    }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let section = indexPath.section
-        let row = indexPath.row
         
         var cell: UITableViewCell
+        
+        var textFieldCell: SingleTextFieldCell
         switch section {
         case 0:
-            if row == 0 {
-                cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.NoteTitle, forIndexPath: indexPath)
-            } else if row == 1 {
-                cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.NoteCategory, forIndexPath: indexPath)
-            } else if row == 2 {
-                cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.NoteURL, forIndexPath: indexPath)
-            } else {
-                cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.Note, forIndexPath: indexPath)
-            }
+            cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.NoteTitle, forIndexPath: indexPath)
+            textFieldCell = cell as! SingleTextFieldCell
+            textFieldCell.textField.text = note?.title
         case 1:
+            cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.NoteCategory, forIndexPath: indexPath)
+            // 分类不属于SingleTextFieldCell类
+            let tf = cell.viewWithTag(Constents.TextFieldTag.Category.rawValue) as! UITextField
+            tf.text = note?.category?.name
+        case 2:
+            cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.NoteURL, forIndexPath: indexPath)
+            textFieldCell = cell as! SingleTextFieldCell
+            textFieldCell.textField.text = note?.url
+        case 3:
+            cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.Note, forIndexPath: indexPath)
+            textFieldCell = cell as! SingleTextFieldCell
+            textFieldCell.textField.text = note?.note
+        case 4:
             cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.NoteContent, forIndexPath: indexPath)
             let textViewCell = cell as! TextViewTableViewCell
             textViewCell.placeholderText = "笔记内容"
+            textViewCell.textView.text = note?.content
         default:
             cell = UITableViewCell.init(style: .Default, reuseIdentifier: "Cell")
         }
@@ -339,9 +354,7 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
         var height: CGFloat
         
         switch section {
-        case 0:
-            height = 44.0
-        case 1:
+        case 4:
             height = 110.0
         default:
             height = 44.0
@@ -350,6 +363,26 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
         return height
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var title: String?
+        switch section {
+        case 0:
+            title = "标题"
+        case 1:
+            title = "分类"
+        case 2:
+            title = "URL"
+        case 3:
+            title = "备注"
+        case 4:
+            title = "内容"
+        default:
+            title = ""
+        }
+        
+        return title
+    }
+
     // MARK: UIPickerViewDelegate and DataSource
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -384,16 +417,5 @@ class CreateNoteViewController: UITableViewController, UITextFieldDelegate, UIPi
             textField.inputAccessoryView = pickerAccessorView
             categoryTextField = textField
         }
-    }
-}
-
-extension String {
-    func isEmptyOrWhitespace() -> Bool {
-        
-        if(self.isEmpty) {
-            return true
-        }
-        
-        return (self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "")
     }
 }

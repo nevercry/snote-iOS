@@ -34,6 +34,11 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -77,6 +82,7 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
                         _note.title = note["title"].string!
                         _note.url = note["url"].string!
                         _note.note = note["note"].string!
+                        _note.content = note["content"].string!
                         let dateStr = note["meta"]["createAt"].string!
                         _note.createdAt = DateHelper().transToDate(dateStr)
                         

@@ -20,6 +20,7 @@
 		4A711F8E1CB6589700214C84 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A711F8D1CB6589700214C84 /* NoteDetailViewController.swift */; };
 		4A711F901CB692B800214C84 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A711F8F1CB692B800214C84 /* SafariServices.framework */; };
 		4A73242B1CB3E14700818170 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73242A1CB3E14700818170 /* Models.swift */; };
+		4A7F518F1CBB98D300D8C8A2 /* EditNoteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7F518E1CBB98D300D8C8A2 /* EditNoteTVC.swift */; };
 		4AAE83111C5535F400451CD7 /* SingleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */; };
 		4AAE83141C553F2B00451CD7 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */; };
 		4AAE83161C5542FE00451CD7 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */; };
@@ -56,6 +57,7 @@
 		4A711F8D1CB6589700214C84 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		4A711F8F1CB692B800214C84 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		4A73242A1CB3E14700818170 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4A7F518E1CBB98D300D8C8A2 /* EditNoteTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNoteTVC.swift; sourceTree = "<group>"; };
 		4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTextFieldCell.swift; sourceTree = "<group>"; };
 		4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
 		4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		4A7383801C4FE0FB003835B0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4A7F518E1CBB98D300D8C8A2 /* EditNoteTVC.swift */,
 				4AF25F581C4E56D200F28920 /* NoteListViewController.swift */,
 				4A711F8D1CB6589700214C84 /* NoteDetailViewController.swift */,
 				4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */,
@@ -393,6 +396,7 @@
 				4A070BD91C57B47A007DE3B7 /* HelpMethods.swift in Sources */,
 				4A3B9E191CA515EA00A4E479 /* MainViewController.swift in Sources */,
 				4A1FB2AD1C9F348F0054AA69 /* SnoteUserDefaults.swift in Sources */,
+				4A7F518F1CBB98D300D8C8A2 /* EditNoteTVC.swift in Sources */,
 				4A4D92F81CA8FAEE00438FC4 /* SettingViewController.swift in Sources */,
 				4A070BD71C564843007DE3B7 /* Note.swift in Sources */,
 				4A4D92F31CA552A400438FC4 /* SignupViewController.swift in Sources */,

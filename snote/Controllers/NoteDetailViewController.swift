@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 import SafariServices
 
-
 class NoteDetailViewController: UIViewController,UITextViewDelegate,SFSafariViewControllerDelegate {
     
     @IBOutlet weak var contentTextView: UITextView!
@@ -56,6 +55,11 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate,SFSafariView
         categoryLabel.text = note?.category?.name
     }
     
+    // MARK: - Unwind Segue 从Model返回时更新
+    @IBAction func noteDetailUpdate(segue: UIStoryboardSegue) {
+        setup()
+    }
+    
     // MARK: - UITextView Delegate
     func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
         let sfVC = SFSafariViewController(URL: URL, entersReaderIfAvailable: true)
@@ -69,17 +73,15 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate,SFSafariView
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showEditNote" {
+            let navVC = segue.destinationViewController as! UINavigationController
+            let topVC = navVC.topViewController! as! EditNoteTVC
+            topVC.note = note
+        }
     }
-    */
+    
 
 }
