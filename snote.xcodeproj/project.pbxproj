@@ -7,21 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A070BD71C564843007DE3B7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A070BD61C564843007DE3B7 /* Note.swift */; };
 		4A070BD91C57B47A007DE3B7 /* HelpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A070BD81C57B47A007DE3B7 /* HelpMethods.swift */; };
-		4A1FB2AA1C9F30670054AA69 /* SnoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1FB2A91C9F30670054AA69 /* SnoteConfig.swift */; };
-		4A1FB2AD1C9F348F0054AA69 /* SnoteUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1FB2AC1C9F348F0054AA69 /* SnoteUserDefaults.swift */; };
+		4A31E0331CDB5AB30098273F /* SnoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A31E0321CDB5AB30098273F /* SnoteConfig.swift */; };
+		4A31E0351CDB5DDA0098273F /* SnoteUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A31E0341CDB5DDA0098273F /* SnoteUserDefaults.swift */; };
 		4A3B9E171CA4FF8700A4E479 /* SignupAndLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3B9E161CA4FF8700A4E479 /* SignupAndLogin.storyboard */; };
 		4A3B9E191CA515EA00A4E479 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B9E181CA515EA00A4E479 /* MainViewController.swift */; };
 		4A4D92F11CA53C1400438FC4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D92F01CA53C1400438FC4 /* LoginViewController.swift */; };
 		4A4D92F31CA552A400438FC4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D92F21CA552A400438FC4 /* SignupViewController.swift */; };
 		4A4D92F51CA68FCE00438FC4 /* SnoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D92F41CA68FCE00438FC4 /* SnoteAPI.swift */; };
 		4A4D92F81CA8FAEE00438FC4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D92F71CA8FAEE00438FC4 /* SettingViewController.swift */; };
+		4A5E8A4E1CBE3693004DE601 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E8A4D1CBE3693004DE601 /* ShareViewController.swift */; };
+		4A5E8A511CBE3693004DE601 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A5E8A4F1CBE3693004DE601 /* MainInterface.storyboard */; };
+		4A5E8A551CBE3693004DE601 /* snoteShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4A5E8A4B1CBE3693004DE601 /* snoteShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4A5E8A6B1CBF4113004DE601 /* snoteShareCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5E8A6A1CBF4113004DE601 /* snoteShareCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A5E8A721CBF4113004DE601 /* snoteShareCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5E8A681CBF4113004DE601 /* snoteShareCode.framework */; };
+		4A5E8A791CBF4113004DE601 /* snoteShareCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E8A781CBF4113004DE601 /* snoteShareCodeTests.swift */; };
+		4A5E8A7D1CBF4113004DE601 /* snoteShareCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5E8A681CBF4113004DE601 /* snoteShareCode.framework */; };
+		4A5E8A7E1CBF4113004DE601 /* snoteShareCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5E8A681CBF4113004DE601 /* snoteShareCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4A5E8A8B1CBF4325004DE601 /* SingleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E8A8A1CBF4325004DE601 /* SingleTextFieldCell.swift */; };
+		4A5E8A901CBF6774004DE601 /* snoteShareCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5E8A681CBF4113004DE601 /* snoteShareCode.framework */; };
+		4A5E8A921CC22E60004DE601 /* MyJSFile.js in Resources */ = {isa = PBXBuildFile; fileRef = 4A5E8A911CC22E60004DE601 /* MyJSFile.js */; };
 		4A711F8E1CB6589700214C84 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A711F8D1CB6589700214C84 /* NoteDetailViewController.swift */; };
 		4A711F901CB692B800214C84 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A711F8F1CB692B800214C84 /* SafariServices.framework */; };
-		4A73242B1CB3E14700818170 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73242A1CB3E14700818170 /* Models.swift */; };
 		4A7F518F1CBB98D300D8C8A2 /* EditNoteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7F518E1CBB98D300D8C8A2 /* EditNoteTVC.swift */; };
-		4AAE83111C5535F400451CD7 /* SingleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */; };
+		4A9B74071CD3451900677BCB /* Pods_snote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7686B17CD3AC2FA0881425E /* Pods_snote.framework */; };
+		4A9B740F1CD34A2800677BCB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B740D1CD34A2800677BCB /* Models.swift */; };
+		4A9B74121CD34A6900677BCB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B74111CD34A6900677BCB /* Models.swift */; };
 		4AAE83141C553F2B00451CD7 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */; };
 		4AAE83161C5542FE00451CD7 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */; };
 		4AF25F371C4E565700F28920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF25F361C4E565700F28920 /* AppDelegate.swift */; };
@@ -34,6 +45,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4A5E8A531CBE3693004DE601 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AF25F2B1C4E565700F28920 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A5E8A4A1CBE3693004DE601;
+			remoteInfo = snoteShare;
+		};
+		4A5E8A731CBF4113004DE601 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AF25F2B1C4E565700F28920 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A5E8A671CBF4113004DE601;
+			remoteInfo = snoteShareCode;
+		};
+		4A5E8A751CBF4113004DE601 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AF25F2B1C4E565700F28920 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AF25F321C4E565700F28920;
+			remoteInfo = snote;
+		};
+		4A5E8A7B1CBF4113004DE601 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AF25F2B1C4E565700F28920 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A5E8A671CBF4113004DE601;
+			remoteInfo = snoteShareCode;
+		};
 		4AF25F4A1C4E565800F28920 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4AF25F2B1C4E565700F28920 /* Project object */;
@@ -43,22 +82,63 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4A5E8A591CBE3693004DE601 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4A5E8A551CBE3693004DE601 /* snoteShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A5E8A821CBF4113004DE601 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4A5E8A7E1CBF4113004DE601 /* snoteShareCode.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		4A070BD61C564843007DE3B7 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		4A070BD81C57B47A007DE3B7 /* HelpMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMethods.swift; sourceTree = "<group>"; };
-		4A1FB2A91C9F30670054AA69 /* SnoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnoteConfig.swift; sourceTree = "<group>"; };
-		4A1FB2AC1C9F348F0054AA69 /* SnoteUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnoteUserDefaults.swift; sourceTree = "<group>"; };
+		4A31E0321CDB5AB30098273F /* SnoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnoteConfig.swift; sourceTree = "<group>"; };
+		4A31E0341CDB5DDA0098273F /* SnoteUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnoteUserDefaults.swift; sourceTree = "<group>"; };
 		4A3B9E161CA4FF8700A4E479 /* SignupAndLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SignupAndLogin.storyboard; path = snote/SignupAndLogin.storyboard; sourceTree = "<group>"; };
 		4A3B9E181CA515EA00A4E479 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4A4D92F01CA53C1400438FC4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4A4D92F21CA552A400438FC4 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		4A4D92F41CA68FCE00438FC4 /* SnoteAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnoteAPI.swift; path = Networking/SnoteAPI.swift; sourceTree = "<group>"; };
 		4A4D92F71CA8FAEE00438FC4 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4A5E8A4B1CBE3693004DE601 /* snoteShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = snoteShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5E8A4D1CBE3693004DE601 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		4A5E8A501CBE3693004DE601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4A5E8A521CBE3693004DE601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A5E8A5A1CBE6764004DE601 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "../../Library/Developer/Xcode/DerivedData/snote-hcrjndfhecutncarogfjlbozbdhw/Build/Products/Debug-iphoneos/MBProgressHUD.framework"; sourceTree = "<group>"; };
+		4A5E8A5C1CBE6789004DE601 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/snote-hcrjndfhecutncarogfjlbozbdhw/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		4A5E8A5E1CBE678F004DE601 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = "../../Library/Developer/Xcode/DerivedData/snote-hcrjndfhecutncarogfjlbozbdhw/Build/Products/Debug-iphoneos/Moya.framework"; sourceTree = "<group>"; };
+		4A5E8A681CBF4113004DE601 /* snoteShareCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = snoteShareCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5E8A6A1CBF4113004DE601 /* snoteShareCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = snoteShareCode.h; sourceTree = "<group>"; };
+		4A5E8A6C1CBF4113004DE601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A5E8A711CBF4113004DE601 /* snoteShareCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snoteShareCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5E8A781CBF4113004DE601 /* snoteShareCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snoteShareCodeTests.swift; sourceTree = "<group>"; };
+		4A5E8A7A1CBF4113004DE601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A5E8A8A1CBF4325004DE601 /* SingleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTextFieldCell.swift; sourceTree = "<group>"; };
+		4A5E8A911CC22E60004DE601 /* MyJSFile.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = MyJSFile.js; sourceTree = "<group>"; };
 		4A711F8D1CB6589700214C84 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		4A711F8F1CB692B800214C84 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
-		4A73242A1CB3E14700818170 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4A7F518E1CBB98D300D8C8A2 /* EditNoteTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNoteTVC.swift; sourceTree = "<group>"; };
-		4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTextFieldCell.swift; sourceTree = "<group>"; };
+		4A9B74041CD2361700677BCB /* snote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = snote.entitlements; sourceTree = "<group>"; };
+		4A9B74051CD236DF00677BCB /* snoteShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = snoteShare.entitlements; sourceTree = "<group>"; };
+		4A9B740D1CD34A2800677BCB /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4A9B74111CD34A6900677BCB /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
 		4AAE83151C5542FE00451CD7 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
 		4AF25F331C4E565700F28920 /* snote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,11 +157,36 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A5E8A481CBE3693004DE601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9B74071CD3451900677BCB /* Pods_snote.framework in Frameworks */,
+				4A5E8A901CBF6774004DE601 /* snoteShareCode.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A5E8A641CBF4113004DE601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A5E8A6E1CBF4113004DE601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5E8A721CBF4113004DE601 /* snoteShareCode.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4AF25F301C4E565700F28920 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4A711F901CB692B800214C84 /* SafariServices.framework in Frameworks */,
+				4A5E8A7D1CBF4113004DE601 /* snoteShareCode.framework in Frameworks */,
 				B003326FBAB36F249572FECB /* Pods_snote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				4A070BD81C57B47A007DE3B7 /* HelpMethods.swift */,
-				4A1FB2A91C9F30670054AA69 /* SnoteConfig.swift */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -116,8 +220,7 @@
 		4A1FB2AB1C9F316B0054AA69 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4A070BD61C564843007DE3B7 /* Note.swift */,
-				4A73242A1CB3E14700818170 /* Models.swift */,
+				4A9B740D1CD34A2800677BCB /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,7 +228,6 @@
 		4A1FB2AE1C9F34970054AA69 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				4A1FB2AC1C9F348F0054AA69 /* SnoteUserDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -136,6 +238,40 @@
 				4A4D92F41CA68FCE00438FC4 /* SnoteAPI.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		4A5E8A4C1CBE3693004DE601 /* snoteShare */ = {
+			isa = PBXGroup;
+			children = (
+				4A9B74111CD34A6900677BCB /* Models.swift */,
+				4A9B74051CD236DF00677BCB /* snoteShare.entitlements */,
+				4A5E8A4D1CBE3693004DE601 /* ShareViewController.swift */,
+				4A5E8A911CC22E60004DE601 /* MyJSFile.js */,
+				4A5E8A4F1CBE3693004DE601 /* MainInterface.storyboard */,
+				4A5E8A521CBE3693004DE601 /* Info.plist */,
+			);
+			path = snoteShare;
+			sourceTree = "<group>";
+		};
+		4A5E8A691CBF4113004DE601 /* snoteShareCode */ = {
+			isa = PBXGroup;
+			children = (
+				4A31E0341CDB5DDA0098273F /* SnoteUserDefaults.swift */,
+				4A31E0321CDB5AB30098273F /* SnoteConfig.swift */,
+				4A5E8A8A1CBF4325004DE601 /* SingleTextFieldCell.swift */,
+				4A5E8A6A1CBF4113004DE601 /* snoteShareCode.h */,
+				4A5E8A6C1CBF4113004DE601 /* Info.plist */,
+			);
+			path = snoteShareCode;
+			sourceTree = "<group>";
+		};
+		4A5E8A771CBF4113004DE601 /* snoteShareCodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				4A5E8A781CBF4113004DE601 /* snoteShareCodeTests.swift */,
+				4A5E8A7A1CBF4113004DE601 /* Info.plist */,
+			);
+			path = snoteShareCodeTests;
 			sourceTree = "<group>";
 		};
 		4A7383801C4FE0FB003835B0 /* Controllers */ = {
@@ -154,7 +290,6 @@
 		4AAE83121C5535FB00451CD7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4AAE83101C5535F400451CD7 /* SingleTextFieldCell.swift */,
 				4AAE83131C553F2B00451CD7 /* TextViewTableViewCell.swift */,
 			);
 			path = Views;
@@ -170,6 +305,9 @@
 				4AF25F411C4E565700F28920 /* LaunchScreen.storyboard */,
 				4A1FB2A61C9F2F670054AA69 /* Supporting Files */,
 				4AF25F4C1C4E565800F28920 /* snoteTests */,
+				4A5E8A4C1CBE3693004DE601 /* snoteShare */,
+				4A5E8A691CBF4113004DE601 /* snoteShareCode */,
+				4A5E8A771CBF4113004DE601 /* snoteShareCodeTests */,
 				4AF25F341C4E565700F28920 /* Products */,
 				99E5485B096D25DEBC96B27B /* Pods */,
 				B9FBCDDB41BBF0E4571D6298 /* Frameworks */,
@@ -181,6 +319,9 @@
 			children = (
 				4AF25F331C4E565700F28920 /* snote.app */,
 				4AF25F491C4E565800F28920 /* snoteTests.xctest */,
+				4A5E8A4B1CBE3693004DE601 /* snoteShare.appex */,
+				4A5E8A681CBF4113004DE601 /* snoteShareCode.framework */,
+				4A5E8A711CBF4113004DE601 /* snoteShareCodeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +329,7 @@
 		4AF25F351C4E565700F28920 /* snote */ = {
 			isa = PBXGroup;
 			children = (
+				4A9B74041CD2361700677BCB /* snote.entitlements */,
 				4AF25F361C4E565700F28920 /* AppDelegate.swift */,
 				4A1FB2AB1C9F316B0054AA69 /* Models */,
 				4AAE83121C5535FB00451CD7 /* Views */,
@@ -230,6 +372,9 @@
 		B9FBCDDB41BBF0E4571D6298 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A5E8A5E1CBE678F004DE601 /* Moya.framework */,
+				4A5E8A5C1CBE6789004DE601 /* Alamofire.framework */,
+				4A5E8A5A1CBE6764004DE601 /* MBProgressHUD.framework */,
 				4A711F8F1CB692B800214C84 /* SafariServices.framework */,
 				F7686B17CD3AC2FA0881425E /* Pods_snote.framework */,
 			);
@@ -238,7 +383,72 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4A5E8A651CBF4113004DE601 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5E8A6B1CBF4113004DE601 /* snoteShareCode.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		4A5E8A4A1CBE3693004DE601 /* snoteShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A5E8A581CBE3693004DE601 /* Build configuration list for PBXNativeTarget "snoteShare" */;
+			buildPhases = (
+				4A5E8A471CBE3693004DE601 /* Sources */,
+				4A5E8A481CBE3693004DE601 /* Frameworks */,
+				4A5E8A491CBE3693004DE601 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = snoteShare;
+			productName = snoteShare;
+			productReference = 4A5E8A4B1CBE3693004DE601 /* snoteShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		4A5E8A671CBF4113004DE601 /* snoteShareCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A5E8A7F1CBF4113004DE601 /* Build configuration list for PBXNativeTarget "snoteShareCode" */;
+			buildPhases = (
+				4A5E8A631CBF4113004DE601 /* Sources */,
+				4A5E8A641CBF4113004DE601 /* Frameworks */,
+				4A5E8A651CBF4113004DE601 /* Headers */,
+				4A5E8A661CBF4113004DE601 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = snoteShareCode;
+			productName = snoteShareCode;
+			productReference = 4A5E8A681CBF4113004DE601 /* snoteShareCode.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4A5E8A701CBF4113004DE601 /* snoteShareCodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A5E8A831CBF4113004DE601 /* Build configuration list for PBXNativeTarget "snoteShareCodeTests" */;
+			buildPhases = (
+				4A5E8A6D1CBF4113004DE601 /* Sources */,
+				4A5E8A6E1CBF4113004DE601 /* Frameworks */,
+				4A5E8A6F1CBF4113004DE601 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A5E8A741CBF4113004DE601 /* PBXTargetDependency */,
+				4A5E8A761CBF4113004DE601 /* PBXTargetDependency */,
+			);
+			name = snoteShareCodeTests;
+			productName = snoteShareCodeTests;
+			productReference = 4A5E8A711CBF4113004DE601 /* snoteShareCodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4AF25F321C4E565700F28920 /* snote */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AF25F521C4E565800F28920 /* Build configuration list for PBXNativeTarget "snote" */;
@@ -249,10 +459,14 @@
 				4AF25F311C4E565700F28920 /* Resources */,
 				88A0E54852A612912943F084 /* Embed Pods Frameworks */,
 				1325E71C3AF9912F86DC12F6 /* Copy Pods Resources */,
+				4A5E8A591CBE3693004DE601 /* Embed App Extensions */,
+				4A5E8A821CBF4113004DE601 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4A5E8A541CBE3693004DE601 /* PBXTargetDependency */,
+				4A5E8A7C1CBF4113004DE601 /* PBXTargetDependency */,
 			);
 			name = snote;
 			productName = snote;
@@ -283,13 +497,35 @@
 		4AF25F2B1C4E565700F28920 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = nevercry;
 				TargetAttributes = {
+					4A5E8A4A1CBE3693004DE601 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = L8463XAM23;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					4A5E8A671CBF4113004DE601 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = L8463XAM23;
+					};
+					4A5E8A701CBF4113004DE601 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 4AF25F321C4E565700F28920;
+					};
 					4AF25F321C4E565700F28920 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = L8463XAM23;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					4AF25F481C4E565800F28920 = {
 						CreatedOnToolsVersion = 7.2;
@@ -312,11 +548,37 @@
 			targets = (
 				4AF25F321C4E565700F28920 /* snote */,
 				4AF25F481C4E565800F28920 /* snoteTests */,
+				4A5E8A4A1CBE3693004DE601 /* snoteShare */,
+				4A5E8A671CBF4113004DE601 /* snoteShareCode */,
+				4A5E8A701CBF4113004DE601 /* snoteShareCodeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A5E8A491CBE3693004DE601 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5E8A511CBE3693004DE601 /* MainInterface.storyboard in Resources */,
+				4A5E8A921CC22E60004DE601 /* MyJSFile.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A5E8A661CBF4113004DE601 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A5E8A6F1CBF4113004DE601 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4AF25F311C4E565700F28920 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,24 +648,47 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A5E8A471CBE3693004DE601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5E8A4E1CBE3693004DE601 /* ShareViewController.swift in Sources */,
+				4A9B74121CD34A6900677BCB /* Models.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A5E8A631CBF4113004DE601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5E8A8B1CBF4325004DE601 /* SingleTextFieldCell.swift in Sources */,
+				4A31E0351CDB5DDA0098273F /* SnoteUserDefaults.swift in Sources */,
+				4A31E0331CDB5AB30098273F /* SnoteConfig.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A5E8A6D1CBF4113004DE601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5E8A791CBF4113004DE601 /* snoteShareCodeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4AF25F2F1C4E565700F28920 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4AF25F591C4E56D200F28920 /* NoteListViewController.swift in Sources */,
 				4A711F8E1CB6589700214C84 /* NoteDetailViewController.swift in Sources */,
-				4A1FB2AA1C9F30670054AA69 /* SnoteConfig.swift in Sources */,
 				4A070BD91C57B47A007DE3B7 /* HelpMethods.swift in Sources */,
 				4A3B9E191CA515EA00A4E479 /* MainViewController.swift in Sources */,
-				4A1FB2AD1C9F348F0054AA69 /* SnoteUserDefaults.swift in Sources */,
 				4A7F518F1CBB98D300D8C8A2 /* EditNoteTVC.swift in Sources */,
 				4A4D92F81CA8FAEE00438FC4 /* SettingViewController.swift in Sources */,
-				4A070BD71C564843007DE3B7 /* Note.swift in Sources */,
 				4A4D92F31CA552A400438FC4 /* SignupViewController.swift in Sources */,
+				4A9B740F1CD34A2800677BCB /* Models.swift in Sources */,
 				4A4D92F51CA68FCE00438FC4 /* SnoteAPI.swift in Sources */,
-				4A73242B1CB3E14700818170 /* Models.swift in Sources */,
 				4AF25F371C4E565700F28920 /* AppDelegate.swift in Sources */,
-				4AAE83111C5535F400451CD7 /* SingleTextFieldCell.swift in Sources */,
 				4AAE83161C5542FE00451CD7 /* CreateNoteViewController.swift in Sources */,
 				4A4D92F11CA53C1400438FC4 /* LoginViewController.swift in Sources */,
 				4AAE83141C553F2B00451CD7 /* TextViewTableViewCell.swift in Sources */,
@@ -421,6 +706,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4A5E8A541CBE3693004DE601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A5E8A4A1CBE3693004DE601 /* snoteShare */;
+			targetProxy = 4A5E8A531CBE3693004DE601 /* PBXContainerItemProxy */;
+		};
+		4A5E8A741CBF4113004DE601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A5E8A671CBF4113004DE601 /* snoteShareCode */;
+			targetProxy = 4A5E8A731CBF4113004DE601 /* PBXContainerItemProxy */;
+		};
+		4A5E8A761CBF4113004DE601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AF25F321C4E565700F28920 /* snote */;
+			targetProxy = 4A5E8A751CBF4113004DE601 /* PBXContainerItemProxy */;
+		};
+		4A5E8A7C1CBF4113004DE601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A5E8A671CBF4113004DE601 /* snoteShareCode */;
+			targetProxy = 4A5E8A7B1CBF4113004DE601 /* PBXContainerItemProxy */;
+		};
 		4AF25F4B1C4E565800F28920 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4AF25F321C4E565700F28920 /* snote */;
@@ -429,6 +734,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4A5E8A4F1CBE3693004DE601 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A5E8A501CBE3693004DE601 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		4AF25F3C1C4E565700F28920 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -450,6 +763,109 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4A5E8A561CBE3693004DE601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = snoteShare/snoteShare.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = snoteShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevercry.snote.snoteShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4A5E8A571CBE3693004DE601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = snoteShare/snoteShare.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = snoteShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevercry.snote.snoteShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4A5E8A801CBF4113004DE601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = snoteShareCode/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevercry.snoteShareCode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4A5E8A811CBF4113004DE601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = snoteShareCode/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevercry.snoteShareCode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4A5E8A841CBF4113004DE601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = snoteShareCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevercry.snoteShareCodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snote.app/snote";
+			};
+			name = Debug;
+		};
+		4A5E8A851CBF4113004DE601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = snoteShareCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevercry.snoteShareCodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snote.app/snote";
+			};
+			name = Release;
+		};
 		4AF25F501C4E565800F28920 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -540,8 +956,10 @@
 			baseConfigurationReference = 7DD1E8FC9513625F23898C8A /* Pods-snote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = snote/snote.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = snote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -569,8 +987,10 @@
 			baseConfigurationReference = B46B5F808AAE54ED6FB3BC32 /* Pods-snote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = snote/snote.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = snote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -620,6 +1040,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A5E8A581CBE3693004DE601 /* Build configuration list for PBXNativeTarget "snoteShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A5E8A561CBE3693004DE601 /* Debug */,
+				4A5E8A571CBE3693004DE601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A5E8A7F1CBF4113004DE601 /* Build configuration list for PBXNativeTarget "snoteShareCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A5E8A801CBF4113004DE601 /* Debug */,
+				4A5E8A811CBF4113004DE601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A5E8A831CBF4113004DE601 /* Build configuration list for PBXNativeTarget "snoteShareCodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A5E8A841CBF4113004DE601 /* Debug */,
+				4A5E8A851CBF4113004DE601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4AF25F2E1C4E565700F28920 /* Build configuration list for PBXProject "snote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import snoteShareCode
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var logoutButton: UIButton!
@@ -18,7 +19,7 @@ class SettingViewController: UIViewController {
         
         // 清除数据
         let manager = NSFileManager.defaultManager()
-        let realmPath = Realm.Configuration.defaultConfiguration.path! as NSString
+        let realmPath = Realm.Configuration.defaultConfiguration.fileURL!.path! as NSString
         let realmPaths = [
             realmPath as String,
             realmPath.stringByAppendingPathExtension("lock")!,

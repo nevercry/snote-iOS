@@ -11,22 +11,22 @@ import UIKit
 let accessTokenKey = "accessToken"
 
 
-class SnoteUserDefaults {
-    static let defaults = NSUserDefaults.standardUserDefaults()
+public class SnoteUserDefaults {
+    static let defaults = NSUserDefaults(suiteName: SnoteConfig.appGroupID)!
     
-    static var isLogon = defaults.stringForKey(accessTokenKey) == nil ? false:true
+    public static var isLogon = defaults.stringForKey(accessTokenKey) == nil ? false:true
     
     // 保存token
-    class func storeToken(token: String) {
+    public class func storeToken(token: String) {
         defaults.setObject(token, forKey: accessTokenKey)
     }
     
     // 清除token
-    class func clearToken() {
+    public class func clearToken() {
         defaults.removeObjectForKey(accessTokenKey)
     }
     
     // token值
-    static var token = defaults.stringForKey(accessTokenKey) ?? ""
+    public static var token = defaults.stringForKey(accessTokenKey) ?? ""
     
 }

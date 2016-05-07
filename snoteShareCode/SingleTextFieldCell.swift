@@ -10,7 +10,7 @@ import UIKit
 
 public class SingleTextFieldCell: UITableViewCell, UITextFieldDelegate {
 
-    @IBOutlet weak var textField: UITextField! {
+    @IBOutlet weak public var textField: UITextField! {
         didSet {
             textField.delegate = self
         }

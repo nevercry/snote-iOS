@@ -9,6 +9,7 @@
 import UIKit
 import MBProgressHUD
 import SwiftyJSON
+import snoteShareCode
 
 class SignupViewController: UIViewController,UITextFieldDelegate {
 

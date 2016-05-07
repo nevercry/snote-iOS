@@ -8,6 +8,6 @@
 
 import UIKit
 
-class SnoteConfig {
-    static let appGroupID: String = "group.nevercry.snote"
+public class SnoteConfig {
+    public static let appGroupID: String = "group.nevercry.snote"
 }

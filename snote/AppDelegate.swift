@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import snoteShareCode
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,19 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // 默认把数据库存在 App Group里
+        let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(SnoteConfig.appGroupID)!
+        let realmURL = directory.URLByAppendingPathComponent("db.realm")
+        
         // 数据库迁移设置
-        Realm.Configuration.defaultConfiguration = Realm.Configuration(
-            schemaVersion: 1,
-            migrationBlock: { migration, oldSchemaVersion in
-                if (oldSchemaVersion < 1) {
-                    // The enumerate(_:_:) method iterates
-                    // over every Person object stored in the Realm file
-                    migration.enumerate(Category.className()) { oldObject, newObject in
-                        // combine name fields into a single field
-                        newObject!["createdAt"] = NSDate(timeIntervalSince1970: 1)
-                    }
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: realmURL, readOnly: false, schemaVersion: 1, migrationBlock: { (migration, oldSchemaVersion) in
+            if (oldSchemaVersion < 1) {
+                migration.enumerate(Category.className()) { oldObject, newObject in
+                    // combine name fields into a single field
+                    newObject!["createdAt"] = NSDate(timeIntervalSince1970: 1)
                 }
+            }
         })
         // 检查一下有没登录
         

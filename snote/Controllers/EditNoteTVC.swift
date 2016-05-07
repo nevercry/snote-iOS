@@ -10,6 +10,8 @@ import UIKit
 import RealmSwift
 import MBProgressHUD
 import SwiftyJSON
+import snoteShareCode
+
 
 class EditNoteTVC: UITableViewController, UITextFieldDelegate {
     var note: Note?
@@ -67,8 +69,6 @@ class EditNoteTVC: UITableViewController, UITextFieldDelegate {
         realm = try! Realm()
         clearsSelectionOnViewWillAppear = false
         title = "修改笔记"
-        
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -336,8 +336,8 @@ class EditNoteTVC: UITableViewController, UITextFieldDelegate {
         case 4:
             cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellIdentifer.NoteContent, forIndexPath: indexPath)
             let textViewCell = cell as! TextViewTableViewCell
-            textViewCell.placeholderText = "笔记内容"
             textViewCell.textView.text = note?.content
+            textViewCell.placeholderText = "笔记内容"   // 先设置textView里的内容，再设置placehodlerText 这样占位符才能正确判断是否隐藏
         default:
             cell = UITableViewCell.init(style: .Default, reuseIdentifier: "Cell")
         }

@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import MBProgressHUD
+import snoteShareCode
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
 
