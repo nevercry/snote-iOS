@@ -166,7 +166,7 @@ class NoteListViewController: UIViewController, UITableViewDataSource, UITableVi
         let note = notes[indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier("NoteCell")
-        cell?.textLabel?.text = note.title
+        cell?.textLabel?.text = note.title // ** 处理下Title的长度  如果length超过25,用...省略
         cell?.detailTextLabel?.text = note.category?.name
         
         return cell!

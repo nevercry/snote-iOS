@@ -25,6 +25,7 @@ class ShareViewController: UITableViewController, UITextFieldDelegate, UIPickerV
         static let CreateCategoryTextFieldTag = 1
         static let NoteTextFieldTag = 2
         static let CategoryTextFieldTag = 3
+        static let TitleTextFieldTag = 4
     }
     
     var note = Note()
@@ -38,8 +39,6 @@ class ShareViewController: UITableViewController, UITextFieldDelegate, UIPickerV
     @IBOutlet var pickerAccessorView: UIToolbar!
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     
-    
-
     
     // MARK: - Actions
     // Done
@@ -93,9 +92,6 @@ class ShareViewController: UITableViewController, UITextFieldDelegate, UIPickerV
     var isFirstLoad = true
     var newCategoryName: String?
     
-    
-    
-    var shareNote:[String:String] = [:]
     
     lazy var urlSession: NSURLSession = {
         // 初始化urlSession
@@ -334,6 +330,8 @@ class ShareViewController: UITableViewController, UITextFieldDelegate, UIPickerV
         doneBtn.enabled = (note.title.characters.count > 0 && note.category != nil)
     }
     
+    // MARK: － 更新Model
+    
     func updateModel(aNotification: NSNotification) {
         let object = aNotification.object
         
@@ -347,6 +345,8 @@ class ShareViewController: UITableViewController, UITextFieldDelegate, UIPickerV
             newCategoryName = text // 创建新分类时的临时保存的分类名，来调接口
         case Constents.CategoryTextFieldTag:
             note.category = selectedCategory
+        case Constents.TitleTextFieldTag:
+            note.title = text
         default:
             break
         }
@@ -386,10 +386,6 @@ class ShareViewController: UITableViewController, UITextFieldDelegate, UIPickerV
                                 let shareTitle = results.objectForKey("title") as? NSString
                                 let shareUrl = results.objectForKey("url") as? NSString
                                 let shareContent = item.attributedContentText?.string
-                                
-                                self.shareNote["title"] = shareTitle as? String
-                                self.shareNote["url"] = shareUrl as? String
-                                self.shareNote["content"] = shareContent
                                 
                                 self.note.title = shareTitle as! String
                                 self.note.url = shareUrl as! String
@@ -437,13 +433,14 @@ class ShareViewController: UITableViewController, UITextFieldDelegate, UIPickerV
         switch section {
         case 0:
             cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellID.Title, forIndexPath: indexPath)
-            cell.textLabel?.text = shareNote["title"] ?? ""
+            let cusCell = cell as! SingleTextFieldCell
+            cusCell.textField.text = self.note.title
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellID.URL, forIndexPath: indexPath)
-            cell.textLabel?.text = shareNote["url"] ?? ""
+            cell.textLabel?.text = self.note.url
         case 2:
             cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellID.Content, forIndexPath: indexPath)
-            cell.textLabel?.text = shareNote["content"] ?? ""
+            cell.textLabel?.text = self.note.content
         case 3:
             cell = tableView.dequeueReusableCellWithIdentifier(Constents.CellID.Note, forIndexPath: indexPath)
         case 4:
